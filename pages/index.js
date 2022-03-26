@@ -3,15 +3,38 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react/cjs/react.development';
 import styles from '../styles/Home.module.css';
+import Swiper, { Navigation, Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default function Home() {
-  const [femaleHiddenBar, setFemaleHiddenBar] = useState(false)
+  const [femaleHiddenBar, setFemaleHiddenBar] = useState(false);
+
+  const swiper = new Swiper('.swiper', {
+    modules: [Navigation, Pagination],
+    // slidesPerView:'auto',
+    // loop:true,
+
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'fraction',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.next-button',
+      prevEl: '.back-button',
+    },
+
+    // And if we need scrollbar
+  });
 
   return (
     <div className='flex flex-col h-screen'>
       <div
         id='subbar'
-        className='flex px-80 py-2 justify-between text-md bg-zinc-200 font-normal tracking-tight	text-md'
+        className='flex px-28 2xl:px-80 py-2 justify-between text-md bg-zinc-200 font-normal tracking-tight	text-sm'
       >
         <div className=''>
           <div>
@@ -29,11 +52,11 @@ export default function Home() {
       </div>
       <div
         id='navbar'
-        className='flex justify-between px-80 py-4 uppercase font-semibold items-center bg-slate-300'
+        className='flex justify-between px-28 2xl:px-80 py-4 uppercase font-semibold items-center bg-white'
       >
         <div
           id='mainbar'
-          className='flex items-center space-x-9 underline-offset-4 decoration-[3px] '
+          className='flex items-center space-x-8 underline-offset-4 decoration-[3px] '
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -50,11 +73,14 @@ export default function Home() {
               </g>
             </g>
           </svg>
-          <div onMouseOver={()=>setFemaleHiddenBar(false)} onMouseOut={()=>setFemaleHiddenBar(true)} className='hover:underline decoration-cyan-700 '>
+          <div
+            // onMouseOver={() => setFemaleHiddenBar(false)}
+            // onMouseOut={() => setFemaleHiddenBar(true)}
+            className='hover:underline decoration-cyan-700 '
+          >
             <Link href='#'>
               <a>nữ</a>
             </Link>
-            
           </div>
           <div className='hover:underline decoration-cyan-700'>
             <Link href='#'>
@@ -72,7 +98,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div id='userbar' className='flex items-center space-x-12'>
+        <div id='userbar' className='flex items-center space-x-10'>
           <form className='flex items-center relative'>
             <label className='hidden'>Search</label>
             <input
@@ -150,7 +176,70 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <div hidden={false} className='h-full w-full bg-slate-500'></div>
+      <div className='flex  h-full w-full bg-slate-500 relative'>
+        <div class='swiper h-full w-full'>
+          {/* <!-- Additional required wrapper --> */}
+          <div class='swiper-wrapper'>
+            {/* <!-- Slides --> */}
+            <div class='swiper-slide bg-yellow-200 text-center'>Slide 1</div>
+            <div class='swiper-slide'>Slide 2</div>
+            <div class='swiper-slide'>Slide 3</div>
+            ...
+          </div>
+          {/* <!-- If we need pagination --> */}
+          <div class='swiper-pagination bg-red-500'></div>
+
+          {/* <!-- If we need navigation buttons --> */}
+
+          {/* <!-- If we need scrollbar --> */}
+          <div class='swiper-scrollbar'></div>
+        </div>
+        <div
+          id='swiper-navigation'
+          className='self-end flex justify-between w-full px-10 z-40 absolute'
+        >
+          <button className=' flex back-button bg-yellow-500 py-2 px-3 uppercase '>
+            <span>
+              {' '}
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='h-6 w-6 mx-3'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M15 19l-7-7 7-7'
+                />
+              </svg>
+            </span>
+            Trước
+          </button>
+          <button className='flex next-button bg-yellow-500 py-2 px-3 uppercase'>
+            {' '}
+            Tiếp
+            <span>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='h-6 w-6 mx-3'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M9 5l7 7-7 7'
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
