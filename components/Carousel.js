@@ -26,24 +26,22 @@ const swiper = new Swiper('.swiper', {
 
 function Carousel() {
   return (
-    <div className='basis-full flex h-20 w-full bg-slate-500 relative'>
-      <div className='h-full swiper relative'>
+    <div className='basis-full  w-full bg-slate-500 relative'>
+      <div className='h-full swiper'>
         <div className='swiper-wrapper'>
-          <div className='flex items-center justify-center py-80 swiper-slide bg-cyan-200 relative '>
-            <video
-              className='w-auto min-w-full min-h-full max-w-none absolute'
-              autoPlay
-              loop
-              muted
-            >
-              <source
-                src='https://image.uniqlo.com/UQ/ST3/vn/imagesother/UVcut/UUCUTALL.mp4'
-                type='video/mp4'
-              />
-              Your browser does not support the video tag.
-            </video>
+          <div className=' swiper-slide bg-cyan-200'>
+            <div className='h-1/2 w-full bg-blue-200 relative'>
+              <video className='absolute' autoPlay loop muted>
+                <source
+                  src='https://image.uniqlo.com/UQ/ST3/vn/imagesother/UVcut/UUCUTALL.mp4'
+                  type='video/mp4'
+                  className=''
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
-          <div className='h-full w-full swiper-slide'>
+          <div className='h-full swiper-slide'>
             <Image layout='fill' objectFit='cover' src='/slider-img-one.jpg' />
           </div>
           <div className='swiper-slide h-2/3'>Slide 3</div>
@@ -55,7 +53,6 @@ function Carousel() {
         id='swiper-navigation'
         className='flex justify-between w-full px-10 z-40 absolute bottom-0 text-gray-50 font-bold'
       >
-        
         <button className=' flex back-button  py-2 px-3 uppercase z-10'>
           <span>
             {' '}
