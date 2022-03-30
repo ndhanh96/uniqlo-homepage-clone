@@ -5,14 +5,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-
 function Carousel() {
   useEffect(() => {
     const swiper = new Swiper('.swiper', {
       modules: [Navigation, Pagination],
 
       loop: true,
-      
+
       pagination: {
         el: '.swiper-pagination',
         type: 'fraction',
@@ -22,7 +21,6 @@ function Carousel() {
         nextEl: '.next-button',
         prevEl: '.back-button',
       },
-
     });
     swiper;
   }, []);
@@ -48,18 +46,25 @@ function Carousel() {
             </div>
           </div>
           <div className='h-full swiper-slide'>
+            <Image layout='fill' objectFit='cover' src='/slider-img-two.jpg' />
+          </div>
+          <div className='h-full swiper-slide'>
+            <Image
+              layout='fill'
+              objectFit='cover'
+              src='/slider-img-three.jpg'
+            />
+          </div>
+          <div className='h-full swiper-slide'>
             <Image layout='fill' objectFit='cover' src='/slider-img-one.jpg' />
           </div>
-          <div className='swiper-slide h-2/3'>Slide 3</div>
         </div>
-
-        <div className='swiper-scrollbar'></div>
       </div>
       <div
         id='swiper-navigation'
-        className='flex justify-between w-full px-10 z-40 absolute bottom-0 text-gray-50 font-bold'
+        className='flex justify-between w-full px-10 z-30 absolute bottom-0 text-gray-50 font-bold'
       >
-        <button className=' flex back-button  py-2 px-3 uppercase z-10'>
+        <button className=' flex back-button  py-2 px-3 uppercase z-40'>
           <span>
             {' '}
             <svg
@@ -79,7 +84,7 @@ function Carousel() {
           </span>
           Trước
         </button>
-        <button className='flex next-button  py-2 px-3 uppercase z-10'>
+        <button className='flex next-button  py-2 px-3 uppercase z-40'>
           {' '}
           Tiếp
           <span>

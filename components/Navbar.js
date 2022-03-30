@@ -1,21 +1,23 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
+import { list } from 'postcss';
+import DummyBar from './DummyBar';
 
 function Navbar() {
   const [maleExpandedBar, setMaleExpandedBar] = useState(true);
   const [femaleExpandedBar, setFemaleExpandedBar] = useState(true);
-
-  const [hoverExpandedBar, setHoverExpandedBar] = useState(false);
+  const [kidExpandedBar, setKidExpandedBar] = useState(true);
+  const [newbornExpandedBar, setNewbornExpandedBar] = useState(true);
 
   return (
-    <div className='bg-yellow-300 w-full sticky top-0 z-40 '>
+    <div className=' bg-yellow-800  w-full sticky top-0 z-40 '>
       <div
         id='navbar'
-        className='flex w-full justify-between  2xl:px-80  uppercase font-semibold items-center bg-white relative'
+        className='flex w-full justify-between  2xl:px-80  uppercase font-semibold items-center bg-white relative '
       >
         <div
           id='mainbar'
-          className='flex items-center space-x-8 underline-offset-4 decoration-[3px]'
+          className='flex h-fit items-center space-x-8 underline-offset-4 decoration-[3px]'
         >
           {/* Logo */}
           <Link href='/'>
@@ -46,11 +48,7 @@ function Navbar() {
             <Link href='#'>
               <a>nữ</a>
             </Link>
-            <div hidden={femaleExpandedBar} className='absolute left-0 top-full h-20 w-full  z-50'>
-              <div className='w-full h-full bg-yellow-300'>
-
-              </div>
-            </div>
+            <DummyBar expandedBar={femaleExpandedBar} />
           </div>
           <div
             onMouseEnter={() => setMaleExpandedBar(false)}
@@ -60,29 +58,27 @@ function Navbar() {
             <Link href='/test'>
               <a>nam</a>
             </Link>
-            <div hidden={maleExpandedBar} className='absolute left-0 top-full h-20 w-full  z-50'>
-              <div className='w-full h-full bg-cyan-300'>
-
-              </div>
-            </div>
+            <DummyBar expandedBar={maleExpandedBar} />
           </div>
           <div
-            // onMouseOver={() => setExpandedBar(false)}
-            // onMouseOut={() => setExpandedBar(true)}
-            className='hover:underline decoration-cyan-700'
+            onMouseEnter={() => setKidExpandedBar(false)}
+            onMouseLeave={() => setKidExpandedBar(true)}
+            className='hover:underline decoration-cyan-700 py-6'
           >
             <Link href='#'>
               <a>trẻ em</a>
             </Link>
+            <DummyBar expandedBar={kidExpandedBar} />
           </div>
           <div
-            // onMouseOver={() => setExpandedBar(false)}
-            // onMouseOut={() => setExpandedBar(true)}
-            className='hover:underline decoration-cyan-700'
+            onMouseEnter={() => setNewbornExpandedBar(false)}
+            onMouseLeave={() => setNewbornExpandedBar(true)}
+            className='hover:underline decoration-cyan-700 py-6'
           >
             <Link href='#'>
               <a>trẻ sơ sinh</a>
             </Link>
+            <DummyBar expandedBar={newbornExpandedBar} />
           </div>
         </div>
         <div id='userbar' className='flex items-center space-x-10'>
@@ -162,58 +158,6 @@ function Navbar() {
             </a>
           </Link>
         </div>
-      </div>
-
-      <div className='relative'>
-        {/* <div
-          hidden={femaleExpandedBar}
-          className='absolute top-0  w-full  z-50'
-        >
-          <div
-            // onMouseOver={() => expandedBarHover()}
-            onMouseLeave={() => setHoverExpandedBar(false)}
-            className='grid grid-cols-5 h-96 bg-blue-300 px-80 '
-          >
-            <ul>
-              <li>Áo</li>
-            </ul>
-            <ul>
-              <li>aaaa</li>
-            </ul>
-            <ul>
-              <li>aaaa</li>
-            </ul>
-            <ul>
-              <li>aaaa</li>
-            </ul>
-            <ul>
-              <li>aaaa</li>
-            </ul>
-          </div>
-        </div> */}
-
-        {/* <div hidden={maleExpandedBar} className='absolute top-0  w-full  z-50'>
-          <div
-            onMouseLeave={() => setMaleExpandedBar(true)}
-            className='grid grid-cols-5 h-96 bg-blue-600 px-80 '
-          >
-            <ul>
-              <li>Áo</li>
-            </ul>
-            <ul>
-              <li>aaaa</li>
-            </ul>
-            <ul>
-              <li>aaaa</li>
-            </ul>
-            <ul>
-              <li>aaaa</li>
-            </ul>
-            <ul>
-              <li>aaaa</li>
-            </ul>
-          </div>
-        </div> */}
       </div>
     </div>
   );

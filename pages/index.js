@@ -13,7 +13,7 @@ export default function Home() {
       <Carousel />
       <div
         id='important-notice'
-        className='flex h-60 justify-around items-center mx-8 2xl:mx-80 my-3 border border-slate-200'
+        className='flex h-60 justify-around items-center mx-8 2xl:mx-80 my-4 border border-slate-200'
       >
         <div className='space-y-4 px-20 '>
           <h1 className='text-2xl font-semibold	'>THÔNG BÁO QUAN TRỌNG</h1>
