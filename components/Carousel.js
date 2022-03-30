@@ -1,41 +1,47 @@
+import React, { useEffect } from 'react';
 import Image from 'next/image';
-import React from 'react';
 import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const swiper = new Swiper('.swiper', {
-  modules: [Navigation, Pagination],
-  // slidesPerView:'auto',
-  // loop:true,
-
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'fraction',
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.next-button',
-    prevEl: '.back-button',
-  },
-
-  // And if we need scrollbar
-});
 
 function Carousel() {
+  useEffect(() => {
+    const swiper = new Swiper('.swiper', {
+      modules: [Navigation, Pagination],
+
+      loop: true,
+      
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction',
+      },
+      // Navigation arrows
+      navigation: {
+        nextEl: '.next-button',
+        prevEl: '.back-button',
+      },
+
+    });
+    swiper;
+  }, []);
+
   return (
-    <div className='basis-full  w-full bg-slate-500 relative'>
+    <>
       <div className='h-full swiper'>
         <div className='swiper-wrapper'>
           <div className=' swiper-slide bg-cyan-200'>
-            <div className='h-1/2 w-full bg-blue-200 relative'>
-              <video className='absolute' autoPlay loop muted>
+            <div className=' h-full w-full bg-blue-200 relative'>
+              <video
+                className='h-full w-full absolute object-cover'
+                autoPlay
+                loop
+                muted
+              >
                 <source
                   src='https://image.uniqlo.com/UQ/ST3/vn/imagesother/UVcut/UUCUTALL.mp4'
                   type='video/mp4'
-                  className=''
                 />
                 Your browser does not support the video tag.
               </video>
@@ -95,7 +101,7 @@ function Carousel() {
         </button>
         <div className='flex justify-center	items-center swiper-pagination absolute h-full bottom-0 tracking-wider z-0'></div>
       </div>
-    </div>
+    </>
   );
 }
 

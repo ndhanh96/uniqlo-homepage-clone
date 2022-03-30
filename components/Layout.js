@@ -1,14 +1,14 @@
 import React from 'react';
-import Carousel from './Carousel';
 import Navbar from './Navbar';
 
 function Layout({ children }) {
+
   return (
     <div>
-      <div className='h-screen flex flex-col'>
+      <div className='h-screen flex flex-col flex-nowrap relative '>
         <div
           id='small-notice-bar'
-          className='flex px-8 2xl:px-80 py-2 justify-between text-sm bg-zinc-200 tracking-tight w-full '
+          className='flex px-8 2xl:px-80 py-2 justify-between text-sm 2xl:text-md bg-zinc-100 tracking-tight w-full '
         >
           <div className=''>
             <div>
@@ -25,9 +25,8 @@ function Layout({ children }) {
           </div>
         </div>
         <Navbar />
-        <Carousel />
+        {children}
       </div>
-      {children}
     </div>
   );
 }

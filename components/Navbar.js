@@ -1,52 +1,85 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 
 function Navbar() {
+  const [maleExpandedBar, setMaleExpandedBar] = useState(true);
+  const [femaleExpandedBar, setFemaleExpandedBar] = useState(true);
+
+  const [hoverExpandedBar, setHoverExpandedBar] = useState(false);
+
   return (
-    <div className='bg-yellow-100 w-full sticky top-0 z-50'>
+    <div className='bg-yellow-300 w-full sticky top-0 z-40 '>
       <div
         id='navbar'
-        className='flex  justify-between px-8 2xl:px-80 py-4 uppercase font-semibold items-center bg-white '
+        className='flex w-full justify-between  2xl:px-80  uppercase font-semibold items-center bg-white relative'
       >
         <div
           id='mainbar'
-          className='flex items-center space-x-8 underline-offset-4 decoration-[3px] '
+          className='flex items-center space-x-8 underline-offset-4 decoration-[3px]'
         >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 90 40'
-            width='90'
-            height='40'
-          >
-            <title>ユニクロ｜UNIQLO</title>
-            <path fill='red' d='M50 0h40v40H50zM0 0h40v40H0z'></path>
-            <g fill='#fff'>
-              <path d='M79.48 5.47h2.53v12.64h-2.53zM63.47 13.9a4.21 4.21 0 0 1-8.42 0V5.47h2.53v8.43a1.68 1.68 0 1 0 3.36 0V5.47h2.53zM75.26 34.53h-8.42V21.89h2.53V32h5.89v2.53zM75.26 18.11h-2.53l-3.36-7.22v7.22h-2.53V5.47h2.53l3.36 7.22V5.47h2.53v12.64zM59.26 21.89a4.21 4.21 0 0 0-4.21 4.22v4.21a4.21 4.21 0 0 0 4.21 4.21 4.34 4.34 0 0 0 .82-.07l.86 2.6h2.53l-1.25-3.75a4.2 4.2 0 0 0 1.25-3v-4.2a4.21 4.21 0 0 0-4.21-4.22m1.68 8.43a1.68 1.68 0 1 1-3.36 0v-4.21a1.68 1.68 0 1 1 3.36 0zM80.74 21.89a4.22 4.22 0 0 0-4.22 4.22v4.21a4.21 4.21 0 0 0 8.42 0v-4.21a4.21 4.21 0 0 0-4.21-4.22m1.68 8.43a1.68 1.68 0 0 1-3.37 0v-4.21a1.68 1.68 0 0 1 3.37 0z'></path>
-              <g>
-                <path d='M22.74 15.16H34.1v2.52H22.74zM24 5.47h8.84V8H24zM14.74 5.47H7.15V8h5.06v7.16H5.9v2.52h11.36v-2.52h-2.52V5.47zM22.74 22.31v12.22H34.1V22.31zM31.57 32h-6.31v-7.16h6.31zM7.15 22.31l-1.28 6.12h2.52l.76-3.59h5.07L12.73 32H5.14l-.51 2.53h10.11l2.52-12.22H7.15z'></path>
-              </g>
-            </g>
-          </svg>
+          {/* Logo */}
+          <Link href='/'>
+            <a>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 90 40'
+                width='90'
+                height='40'
+              >
+                <title>ユニクロ｜UNIQLO</title>
+                <path fill='red' d='M50 0h40v40H50zM0 0h40v40H0z'></path>
+                <g fill='#fff'>
+                  <path d='M79.48 5.47h2.53v12.64h-2.53zM63.47 13.9a4.21 4.21 0 0 1-8.42 0V5.47h2.53v8.43a1.68 1.68 0 1 0 3.36 0V5.47h2.53zM75.26 34.53h-8.42V21.89h2.53V32h5.89v2.53zM75.26 18.11h-2.53l-3.36-7.22v7.22h-2.53V5.47h2.53l3.36 7.22V5.47h2.53v12.64zM59.26 21.89a4.21 4.21 0 0 0-4.21 4.22v4.21a4.21 4.21 0 0 0 4.21 4.21 4.34 4.34 0 0 0 .82-.07l.86 2.6h2.53l-1.25-3.75a4.2 4.2 0 0 0 1.25-3v-4.2a4.21 4.21 0 0 0-4.21-4.22m1.68 8.43a1.68 1.68 0 1 1-3.36 0v-4.21a1.68 1.68 0 1 1 3.36 0zM80.74 21.89a4.22 4.22 0 0 0-4.22 4.22v4.21a4.21 4.21 0 0 0 8.42 0v-4.21a4.21 4.21 0 0 0-4.21-4.22m1.68 8.43a1.68 1.68 0 0 1-3.37 0v-4.21a1.68 1.68 0 0 1 3.37 0z'></path>
+                  <g>
+                    <path d='M22.74 15.16H34.1v2.52H22.74zM24 5.47h8.84V8H24zM14.74 5.47H7.15V8h5.06v7.16H5.9v2.52h11.36v-2.52h-2.52V5.47zM22.74 22.31v12.22H34.1V22.31zM31.57 32h-6.31v-7.16h6.31zM7.15 22.31l-1.28 6.12h2.52l.76-3.59h5.07L12.73 32H5.14l-.51 2.53h10.11l2.52-12.22H7.15z'></path>
+                  </g>
+                </g>
+              </svg>
+            </a>
+          </Link>
+          {/* MAIN BAR */}
           <div
-            // onMouseOver={() => setFemaleHiddenBar(false)}
-            // onMouseOut={() => setFemaleHiddenBar(true)}
-            className='hover:underline decoration-cyan-700 '
+            onMouseEnter={() => setFemaleExpandedBar(false)}
+            onMouseLeave={() => setFemaleExpandedBar(true)}
+            className='hover:underline decoration-cyan-700 py-6'
           >
             <Link href='#'>
               <a>nữ</a>
             </Link>
+            <div hidden={femaleExpandedBar} className='absolute left-0 top-full h-20 w-full  z-50'>
+              <div className='w-full h-full bg-yellow-300'>
+
+              </div>
+            </div>
           </div>
-          <div className='hover:underline decoration-cyan-700'>
-            <Link href='#'>
+          <div
+            onMouseEnter={() => setMaleExpandedBar(false)}
+            onMouseLeave={() => setMaleExpandedBar(true)}
+            className='hover:underline decoration-cyan-700 py-6'
+          >
+            <Link href='/test'>
               <a>nam</a>
             </Link>
+            <div hidden={maleExpandedBar} className='absolute left-0 top-full h-20 w-full  z-50'>
+              <div className='w-full h-full bg-cyan-300'>
+
+              </div>
+            </div>
           </div>
-          <div className='hover:underline decoration-cyan-700'>
+          <div
+            // onMouseOver={() => setExpandedBar(false)}
+            // onMouseOut={() => setExpandedBar(true)}
+            className='hover:underline decoration-cyan-700'
+          >
             <Link href='#'>
               <a>trẻ em</a>
             </Link>
           </div>
-          <div className='hover:underline decoration-cyan-700'>
+          <div
+            // onMouseOver={() => setExpandedBar(false)}
+            // onMouseOut={() => setExpandedBar(true)}
+            className='hover:underline decoration-cyan-700'
+          >
             <Link href='#'>
               <a>trẻ sơ sinh</a>
             </Link>
@@ -129,6 +162,58 @@ function Navbar() {
             </a>
           </Link>
         </div>
+      </div>
+
+      <div className='relative'>
+        {/* <div
+          hidden={femaleExpandedBar}
+          className='absolute top-0  w-full  z-50'
+        >
+          <div
+            // onMouseOver={() => expandedBarHover()}
+            onMouseLeave={() => setHoverExpandedBar(false)}
+            className='grid grid-cols-5 h-96 bg-blue-300 px-80 '
+          >
+            <ul>
+              <li>Áo</li>
+            </ul>
+            <ul>
+              <li>aaaa</li>
+            </ul>
+            <ul>
+              <li>aaaa</li>
+            </ul>
+            <ul>
+              <li>aaaa</li>
+            </ul>
+            <ul>
+              <li>aaaa</li>
+            </ul>
+          </div>
+        </div> */}
+
+        {/* <div hidden={maleExpandedBar} className='absolute top-0  w-full  z-50'>
+          <div
+            onMouseLeave={() => setMaleExpandedBar(true)}
+            className='grid grid-cols-5 h-96 bg-blue-600 px-80 '
+          >
+            <ul>
+              <li>Áo</li>
+            </ul>
+            <ul>
+              <li>aaaa</li>
+            </ul>
+            <ul>
+              <li>aaaa</li>
+            </ul>
+            <ul>
+              <li>aaaa</li>
+            </ul>
+            <ul>
+              <li>aaaa</li>
+            </ul>
+          </div>
+        </div> */}
       </div>
     </div>
   );
