@@ -35,7 +35,7 @@ function Carousel() {
                 className='h-full w-full absolute object-cover'
                 autoPlay
                 loop
-                muted
+                muted={'true'}
               >
                 <source
                   src='https://image.uniqlo.com/UQ/ST3/vn/imagesother/UVcut/UUCUTALL.mp4'

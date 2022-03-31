@@ -13,7 +13,7 @@ function Navbar() {
     <div className=' bg-yellow-800  w-full sticky top-0 z-40 '>
       <div
         id='navbar'
-        className='flex w-full justify-between  2xl:px-80  uppercase font-semibold items-center bg-white relative '
+        className='flex w-full justify-between px-8 2xl:px-80  uppercase font-semibold items-center bg-white relative '
       >
         <div
           id='mainbar'

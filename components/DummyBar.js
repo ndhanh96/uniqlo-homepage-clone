@@ -1,13 +1,12 @@
-import React,{useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
-function DummyBar({expandedBar}) {
+function DummyBar({ expandedBar }) {
   // const [hiddenBar, setHiddenBar] = useState(expandedBar);
 
   // useEffect(() => {
   //   setHiddenBar(expandedBar)
-  
+
   // }, [expandedBar])
-  
 
   const shirt = [
     'Tất Cả Áo',
@@ -79,19 +78,30 @@ function DummyBar({expandedBar}) {
     'Quần Tây',
   ];
 
-  const specialCollect = ["UNIQLO x Theory", "UNIQLO and JW ANDERSON", "＋J", "INES DE LA FRESSANGE", "Uniqlo U", "HANA TAJIMA FOR UNIQLO", "Uniqlo and Mame Kurogouchi", "Bộ Sưu Tập Đặc Biệt"];
+  const specialCollect = [
+    'UNIQLO x Theory',
+    'UNIQLO and JW ANDERSON',
+    '＋J',
+    'INES DE LA FRESSANGE',
+    'Uniqlo U',
+    'HANA TAJIMA FOR UNIQLO',
+    'Uniqlo and Mame Kurogouchi',
+    'Bộ Sưu Tập Đặc Biệt',
+  ];
 
   return (
     <div
       hidden={expandedBar}
       className='absolute left-0 top-full w-full z-50 bg-white border border-t-slate-300 '
     >
-      <div className='grid grid-cols-5  2xl:mx-80 my-8'>
-        <div className='col-span-4 grid grid-cols-4 auto-rows-min	gap-2 normal-case	text-md font-mono tracking-tight'>
+      <div className='grid grid-cols-5 mx-8 2xl:mx-80 my-8'>
+        <div className='col-span-4 grid grid-cols-4	gap-1 2xl:gap-2 normal-case	text-sm font-mono 2xl:tracking-tight'>
           <ul className=''>
             <span className='font-semibold text-lg'>ÁO</span>
-            {shirt.map((s) => (
-              <li className=' font-thin'>{s}</li>
+            {shirt.map((s, index) => (
+              <li key={index} className=' font-thin'>
+                {s}
+              </li>
             ))}
           </ul>
           <ul className=''>
@@ -100,14 +110,18 @@ function DummyBar({expandedBar}) {
           </ul>
           <ul className=' 	'>
             <span className='font-semibold text-lg'>ĐỒ MẶC TRONG</span>
-            {innerwear.map((i) => (
-              <li className=' font-thin'>{i}</li>
+            {innerwear.map((i, index) => (
+              <li key={index} className=' font-thin'>
+                {i}
+              </li>
             ))}
           </ul>
           <ul className=''>
             <span className='font-semibold text-lg'>ĐỒ MẶC NGOÀI</span>
-            {outerwear.map((o) => (
-              <li className=' font-thin'>{o}</li>
+            {outerwear.map((o, index) => (
+              <li key={index} className=' font-thin'>
+                {o}
+              </li>
             ))}
           </ul>
           <ul className=' '>
@@ -118,20 +132,26 @@ function DummyBar({expandedBar}) {
           </ul>
           <ul className=' '>
             <span className='font-semibold text-lg'>ĐỒ MẶC NHÀ</span>
-            {loungwear.map((l) => (
-              <li className=' font-thin'>{l}</li>
+            {loungwear.map((l, index) => (
+              <li key={index} className=' font-thin'>
+                {l}
+              </li>
             ))}
           </ul>
-          <ul className=' 	'>
+          <ul className=''>
             <span className='font-semibold text-lg'>QUẦN</span>
-            {pants.map((p) => (
-              <li className=' font-thin'>{p}</li>
+            {pants.map((p, index) => (
+              <li key={index} className=' font-thin'>
+                {p}
+              </li>
             ))}
           </ul>
-          <ul className=' 	'>
+          <ul className=''>
             <span className='font-semibold text-lg'>PHỤ KIỆN</span>
-            {accessories.map((a) => (
-              <li className=' font-thin'>{a}</li>
+            {accessories.map((a, index) => (
+              <li key={index} className=' font-thin'>
+                {a}
+              </li>
             ))}
           </ul>
           <ul className='	'>
@@ -139,17 +159,21 @@ function DummyBar({expandedBar}) {
             <li className=' font-thin'>Đồ Cho Mẹ Bầu</li>
           </ul>
         </div>
-        <div className='flex flex-col justify-between flex-wrap normal-case border-l border-zinc-300 pl-8 text-md font-mono tracking-tight'>
+        <div className='flex flex-col justify-between flex-wrap normal-case border-l border-zinc-300 pl-8 text-sm 2xl:text-md font-mono tracking-tight'>
           <ul className=' 	'>
             <span className='font-semibold text-lg'>NỔI BẬT</span>
-            {hotwear.map((h) => (
-              <li className=' font-thin'>{h}</li>
+            {hotwear.map((h, index) => (
+              <li key={index} className=' font-thin'>
+                {h}
+              </li>
             ))}
           </ul>
           <ul className=' 	'>
             <span className='font-semibold text-lg'>Bộ Sưu Tập Đặc Biệt</span>
-            {specialCollect.map((s) => (
-              <li className=' font-thin'>{s}</li>
+            {specialCollect.map((s, index) => (
+              <li key={index} className=' font-thin'>
+                {s}
+              </li>
             ))}
           </ul>
           <ul className=''>
