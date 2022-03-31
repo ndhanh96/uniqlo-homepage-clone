@@ -29,17 +29,15 @@ function Layout({ children }) {
 
   useEffect(() => {
     setWindowheight(window.innerHeight);
-    window.addEventListener('resize', handleResizeHeight);
+    
 
     ///CALCULATE HEIGHT FOR THE MAIN SLIDE
     setSliderHeight(
       windowheight - navbar.current.clientHeight - smallbar.current.clientHeight
     );
 
-    return () => {
-      window.removeEventListener('resize', handleResizeHeight);
-    };
-  }, [windowheight]);
+    
+  }, []);
 
   return (
     <div className=''>
