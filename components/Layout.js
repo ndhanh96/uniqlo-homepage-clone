@@ -1,33 +1,44 @@
-import React, { useEffect, useRef, useState,useLayoutEffect } from 'react';
+import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
 export const calculateSliderHeight = React.createContext();
 
-function useWindowSize() {        ///GOT THIS FROM STACKOVERFLOW , CALCULATE WINDOW INNER HEIGHT
-  const [windowHeight, setWindowHeight] = useState(0);
-  useLayoutEffect(() => {
-    function updateHeight() {
-      setWindowHeight(window.innerHeight);
-    }
-    window.addEventListener('resize', updateHeight);
-    updateHeight();
-    return () => window.removeEventListener('resize', updateHeight);
-  }, []);
-  return windowHeight;
-}
-
+// function useWindowSize() {        ///GOT THIS FROM STACKOVERFLOW , CALCULATE WINDOW INNER HEIGHT
+//   const [windowHeight, setWindowHeight] = useState(0);
+//   useLayoutEffect(() => {
+//     function updateHeight() {
+//       setWindowHeight(window.innerHeight);
+//     }
+//     window.addEventListener('resize', updateHeight);
+//     updateHeight();
+//     return () => window.removeEventListener('resize', updateHeight);
+//   }, []);
+//   return windowHeight;
+// }
 
 function Layout({ children }) {
   const smallbar = useRef();
   const navbar = useRef();
-  const [sliderHeight, setSliderHeight] = useState(0); 
-  const windowheight = useWindowSize();
+  const [sliderHeight, setSliderHeight] = useState(0);
+  const [windowheight, setWindowheight] = useState(0);
+
+  const handleResizeHeight = () => {
+    setWindowheight(window.innerHeight);
+  };
 
   useEffect(() => {
-    // const windowheight = window.innerHeight;
-    setSliderHeight(windowheight - navbar.current.clientHeight - smallbar.current.clientHeight); ///CALCULATE HEIGHT FOR THE MAIN SLIDE
-    console.log(windowheight);
+    setWindowheight(window.innerHeight);
+    window.addEventListener('resize', handleResizeHeight);
+
+    ///CALCULATE HEIGHT FOR THE MAIN SLIDE
+    setSliderHeight(
+      windowheight - navbar.current.clientHeight - smallbar.current.clientHeight
+    );
+
+    return () => {
+      window.removeEventListener('resize', handleResizeHeight);
+    };
   }, [windowheight]);
 
   return (

@@ -6,7 +6,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 function Carousel() {
-  
   useEffect(() => {
     const swiper = new Swiper('.swiper', {
       modules: [Navigation, Pagination],
@@ -21,9 +20,11 @@ function Carousel() {
         prevEl: '.back-button',
       },
     });
-  }, []);
 
-  
+    return () => {
+      swiper;
+    };
+  }, []);
 
   return (
     <>
@@ -36,7 +37,6 @@ function Carousel() {
                 autoPlay
                 loop
                 muted
-                controls
               >
                 <source
                   src='https://image.uniqlo.com/UQ/ST3/vn/imagesother/UVcut/UUCUTALL.mp4'
