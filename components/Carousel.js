@@ -39,7 +39,7 @@ function Carousel() {
                 muted
               >
                 <source
-                  src='https://image.uniqlo.com/UQ/ST3/vn/imagesother/UVcut/UUCUTALL.mp4'
+                  src='/mainvideo.mp4'
                   type='video/mp4'
                 />
                 Your browser does not support the video tag.
