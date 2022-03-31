@@ -28,7 +28,7 @@ function Layout({ children }) {
   };
 
   useEffect(() => {
-    setWindowheight(window.innerHeight);
+    const windowheight = window.innerHeight;
     
 
     ///CALCULATE HEIGHT FOR THE MAIN SLIDE
