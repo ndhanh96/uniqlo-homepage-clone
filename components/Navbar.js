@@ -10,14 +10,14 @@ function Navbar() {
   const [newbornExpandedBar, setNewbornExpandedBar] = useState(true);
 
   return (
-    <div className=' bg-yellow-800  w-full sticky top-0 z-40 '>
+    <>
       <div
         id='navbar'
         className='flex w-full justify-between px-8 2xl:px-80  uppercase font-semibold items-center bg-white relative '
       >
         <div
           id='mainbar'
-          className='flex h-fit items-center space-x-8 underline-offset-4 decoration-[3px]'
+          className='flex h-fit items-center space-x-8 underline-offset-4 decoration-[3px] 	'
         >
           {/* Logo */}
           <Link href='/'>
@@ -43,7 +43,7 @@ function Navbar() {
           <div
             onMouseEnter={() => setFemaleExpandedBar(false)}
             onMouseLeave={() => setFemaleExpandedBar(true)}
-            className='hover:underline decoration-cyan-700 py-6'
+            className='hover:underline decoration-cyan-700 py-6 '
           >
             <Link href='#'>
               <a>nữ</a>
@@ -159,7 +159,7 @@ function Navbar() {
           </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,26 +1,29 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import Carousel from '../components/Carousel';
 import Image from 'next/image';
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+import { calculateSliderHeight } from '../components/Layout';
 
 export default function Home() {
+  const sliderHeight = useContext(calculateSliderHeight);
   useEffect(() => {
     const swiper = new Swiper('.end-swiper', {
-      modules: [Navigation, Pagination],
-      // spaceBetween:0
-      loop: true,
-      autoplay:{
-        delay:1000
+      modules: [Navigation, Pagination, Autoplay],
+      // loop: true,
+      autoplay: {
+        delay: 6000,
+        waitForTransition: true,
       },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullet',
-      },
+      // pagination: {
+      //   el: '.swiper-pagination',
+      //   type: 'bullet',
+      // },
       // Navigation arrows
       // navigation: {
       //   nextEl: '.next-button',
@@ -28,11 +31,14 @@ export default function Home() {
       // },
     });
     swiper;
+    console.log('res ' + sliderHeight);
   }, []);
 
   return (
-    <div className='basis-full h-full w-full bg-slate-500 relative'>
-      <Carousel />
+    <>
+      <div style={{ height: sliderHeight }} className='w-full bg-slate-500'>
+        <Carousel />
+      </div>
       <div
         id='important-notice'
         className='flex h-60 justify-around items-center mx-8 2xl:mx-80 my-4 border border-slate-200'
@@ -79,36 +85,29 @@ export default function Home() {
           <li>Tin Tức Uniqlo</li>
         </ul>
       </div>
-      <div id='app-offer' className=' mx-8 2xl:mx-80'>
-        <h1 className='capitalize col-span-1 py-2 w-fit font-bold text-4xl'>
+      <div id='app-offer' className=' mx-8 2xl:mx-80 '>
+        <h1 className='capitalize  py-2 w-fit font-bold text-4xl'>
           ưu đãi từ ứng dụng
         </h1>
-        <div className='h-screen end-swiper col-span-1  w-full overflow-hidden relative '>
-          <div className='swiper-wrapper h-fit '>
+        <div className='h-[500px] end-swiper w-full overflow-hidden'>
+          <div className='h-fit swiper-wrapper '>
             <div className='h-full swiper-slide'>
-              <Image
-                layout='fill'
-                objectFit='cover'
-                objectPosition={'center'}
-                src='/end-slider-one.gif'
-              />
+              <Image layout='fill' objectFit='none' src='/end-slider-one.gif' />
             </div>
             <div className='h-full swiper-slide'>
-              <Image
-                layout='fill'
-                objectFit='cover'
-                objectPosition={'center'}
-                src='/end-slider-two.jpg'
-              />
+              <Image layout='fill' objectFit='none' src='/end-slider-two.jpg' />
             </div>
           </div>
         </div>
-        <div className="flex w-full ">
-          <button style={{backgroundColor:'red'}} className="py-2 w-full uppercase text-white">
+        <div className='flex w-full '>
+          <button
+            style={{ backgroundColor: 'red' }}
+            className='py-2 w-full uppercase text-white'
+          >
             tải ứng dụng ngay
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }

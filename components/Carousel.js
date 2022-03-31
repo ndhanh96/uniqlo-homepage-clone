@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
@@ -6,12 +6,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 function Carousel() {
+  
   useEffect(() => {
     const swiper = new Swiper('.swiper', {
       modules: [Navigation, Pagination],
-
       loop: true,
-
       pagination: {
         el: '.swiper-pagination',
         type: 'fraction',
@@ -22,20 +21,22 @@ function Carousel() {
         prevEl: '.back-button',
       },
     });
-    swiper;
   }, []);
+
+  
 
   return (
     <>
-      <div className='h-full swiper'>
+      <div muted className='h-full swiper'>
         <div className='swiper-wrapper'>
           <div className=' swiper-slide bg-cyan-200'>
             <div className=' h-full w-full bg-blue-200 relative'>
               <video
-                className='h-full w-full absolute object-cover'
+                className='h-full w-full absolute object-cover object-top'
                 autoPlay
                 loop
-                muted={'true'}
+                muted
+                controls
               >
                 <source
                   src='https://image.uniqlo.com/UQ/ST3/vn/imagesother/UVcut/UUCUTALL.mp4'
@@ -104,7 +105,7 @@ function Carousel() {
             </svg>
           </span>
         </button>
-        <div className='flex justify-center	items-center swiper-pagination absolute h-full bottom-0 tracking-wider z-0'></div>
+        <div className='flex justify-center	items-center swiper-pagination absolute h-full top-0  tracking-wider z-0'></div>
       </div>
     </>
   );
