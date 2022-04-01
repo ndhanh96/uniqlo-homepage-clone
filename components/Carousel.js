@@ -34,8 +34,8 @@ function Carousel() {
     <>
       <div className='h-full swiper'>
         <div className='swiper-wrapper'>
-          <div className='hidden lg:block swiper-slide bg-cyan-200'>
-            <div className='h-full w-full bg-blue-200 relative'>
+          <div className='swiper-slide bg-cyan-200'>
+            <div className='hidden lg:block h-full w-full bg-blue-200 relative'>
               <video
                 ref={videoRef}
                 className='h-full w-full absolute object-cover z-10'
@@ -48,9 +48,7 @@ function Carousel() {
                 Your browser does not support the video tag.
               </video>
             </div>
-          </div>
-          <div className='lg:hidden swiper-slide bg-cyan-200'>
-            <div className='h-full w-full bg-blue-200 relative'>
+            <div className='lg:hidden h-full w-full bg-blue-200 relative'>
               <video
                 ref={videoRef}
                 className='h-full w-full absolute object-cover z-10'
@@ -64,6 +62,7 @@ function Carousel() {
               </video>
             </div>
           </div>
+          
           <div className='h-full swiper-slide'>
             <Image
               
