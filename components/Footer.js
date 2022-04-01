@@ -5,7 +5,7 @@ import React from 'react';
 function Footer() {
   return (
     <div className='flex flex-wrap bg-zinc-100 mt-4'>
-      <div className='grid grid-cols-5 gap-x-2 xl:gap-x-14 w-full lg:mx-16 xl:mx-8 2xl:xl:mx-80 my-12 capitalize'>
+      <div className='hidden lg:grid grid-cols-5 gap-x-2 xl:gap-x-14 w-full lg:mx-16 xl:mx-8 2xl:xl:mx-80 my-12 capitalize'>
         <ul>
           <span className='text-base font-semibold'>Về Uniqlo</span>
           <li>Thông tin</li>
@@ -62,15 +62,53 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div id='language' className='lg:mx-16 xl:mx-8 2xl:xl:mx-80 basis-full'>
+      <div
+        id='language'
+        className='hidden lg:block lg:mx-16 xl:mx-8 2xl:xl:mx-80 basis-full'
+      >
         <p>
           English | <span className='font-bold'>Tiếng Việt</span>
         </p>
       </div>
-      <div id='sub-footer' className='lg:px-16 xl:px-8 2xl:xl:px-80 mt-4 w-full border-t-[1px] border-zinc-300 text-sm'>
-        <div className='flex h-auto items-center justify-between text-zinc-500 '>
-          <p className='' >BẢN QUYỀN THUỘC CÔNG TY TNHH UNIQLO. BẢO LƯU MỌI QUYỀN.</p>
-          <div className='flex space-x-3 underline py-5'>
+
+      <div id='mobile-footer' className='lg:hidden w-full px-6 mt-8'>
+        <ul className='w-full uppercase font-semibold border-t-2 border-zinc-600'>
+          <li className='py-4 border-b border-zinc-400'>hồ sơ</li>
+          <li className='py-4 border-b border-zinc-400'>danh sách cửa hàng</li>
+          <li className='py-4 border-b border-zinc-400'>tin tức điện tử</li>
+          <li className='py-4 border-b border-zinc-400'>chính sách trả hàng</li>
+          <li className='py-4 border-b border-zinc-400'>chính sách bảo mật</li>
+          <li className='py-4 border-b border-zinc-400'>điều khoản sử dụng</li>
+          <li className='py-4 border-b border-zinc-400'>faq</li>
+          <li className='py-4 border-b border-zinc-400'>thông tin</li>
+          <li className='py-4 border-b border-zinc-400'>
+            <p className=''>tài khoản mạng xã hội</p>
+            <div className='flex space-x-8 mt-2'>
+              <div className=' h-10 w-10 relative'>
+                <Image layout='fill' objectFit='fill' src='/facebook.svg' />
+              </div>
+              <div className=' h-10 w-10 relative'>
+                <Image layout='fill' objectFit='fill' src='/instagram.svg' />
+              </div>
+              <div className=' h-10 w-10 relative'>
+                <Image layout='fill' objectFit='fill' src='/youtube.svg' />
+              </div>
+            </div>
+          </li>
+          <li className='py-4 border-b border-zinc-400'>tiếp cận</li>
+          <li className='py-4 border-b font-normal border-zinc-400'>english<span className='font-semibold border-l-2 border-zinc-500 pl-2 ml-2'>tiếng việt</span></li>
+        </ul>
+      </div>
+
+      <div
+        id='sub-footer'
+        className='px-6 lg:px-16 xl:px-8 2xl:xl:px-80 mt-4 w-full lg:border-t-[1px] border-zinc-300 text-sm'
+      >
+        <div className='flex h-auto items-center justify-center lg:justify-between mb-3 lg:mb-0 text-zinc-500 '>
+          <p className='text-xs lg:text-sm'>
+            BẢN QUYỀN THUỘC CÔNG TY TNHH UNIQLO. BẢO LƯU MỌI QUYỀN.
+          </p>
+          <div className='hidden lg:flex space-x-3 underline py-5'>
             <Link href='#'>
               <a>Điều khoản sử dụng</a>
             </Link>
@@ -80,11 +118,18 @@ function Footer() {
           </div>
         </div>
         <p>Tên công ty: UNIQLO VIETNAM CO., LTD</p>
-        <p>Giấy chứng nhận đăng ký doanh nghiệp số: 0315304731, đăng ký lần đầu ngày 02/10/2018, đăng ký thay đổi lần thứ ba ngày 23/09/2019</p>
-        <p>Địa chỉ trụ sở doanh nghiệp: Tầng 26, Tòa nhà Trụ Sở Điều Hành Và Trung Tâm Thương Mại Viettel, 285 Cách Mạng Tháng Tám, Phường 12, Quận 10, Thành phố Hồ Chí Minh</p>
+        <p>
+          Giấy chứng nhận đăng ký doanh nghiệp số: 0315304731, đăng ký lần đầu
+          ngày 02/10/2018, đăng ký thay đổi lần thứ ba ngày 23/09/2019
+        </p>
+        <p>
+          Địa chỉ trụ sở doanh nghiệp: Tầng 26, Tòa nhà Trụ Sở Điều Hành Và
+          Trung Tâm Thương Mại Viettel, 285 Cách Mạng Tháng Tám, Phường 12, Quận
+          10, Thành phố Hồ Chí Minh
+        </p>
         <p>Để được giải đáp thắc mắc, vui lòng truy cập trang FAQ/Trợ giúp</p>
         <p>Giờ làm việc: 9:00 - 18:00 (Thứ Hai - Chủ Nhật)</p>
-        <div id="checkedmark" className="h-20 w-36 relative">
+        <div id='checkedmark' className='h-20 w-36 relative'>
           <Image layout='fill' objectFit='contain' src='/checkmark.png' />
         </div>
       </div>

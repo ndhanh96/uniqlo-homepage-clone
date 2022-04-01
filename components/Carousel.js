@@ -6,6 +6,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 function Carousel() {
+  const videoRef = useRef(undefined);
+  useEffect(() => {
+      videoRef.current.defaultMuted = true;
+  })
   useEffect(() => {
     const swiper = new Swiper('.swiper', {
       modules: [Navigation, Pagination],
@@ -33,10 +37,13 @@ function Carousel() {
           <div className=' swiper-slide bg-cyan-200'>
             <div className=' h-full w-full bg-blue-200 relative'>
               <video
+              ref={videoRef} 
                 className='h-full w-full absolute object-cover object-top'
-                autoPlay
-                loop
+                autoPlay={true}
+                loop={true}
                 muted
+                playsInline={true}
+                
               >
                 <source
                   src='/mainvideo.mp4'

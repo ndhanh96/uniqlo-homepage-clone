@@ -42,9 +42,9 @@ function Layout({ children }) {
       <div
         ref={smallbar}
         id='small-notice-bar'
-        className='z-50 flex lg:px-16 xl:px-8 2xl:px-80 md:py-1 lg:py-2 md:justify-center lg:justify-between lg:text-xs xl:text-sm 2xl:text-md bg-zinc-400 lg:bg-zinc-300 tracking-tight w-full relative'
+        className='z-50 flex lg:px-16 xl:px-8 2xl:px-28 py-1 lg:py-2 justify-center xl:justify-between lg:text-xs text-xs xl:text-sm 2xl:text-md bg-zinc-400 lg:bg-zinc-300 tracking-tight w-full relative'
       >
-        <div className='text-white lg:text-black md:font-medium' >
+        <div className='text-white lg:text-black text-center' >
           <h3>
             Thuế GTGT áp dụng cho sản phẩm của chúng tôi sẽ giảm 2%, giá tất cả
             sản phẩm đã bao gồm 8% thuế GTGT.
