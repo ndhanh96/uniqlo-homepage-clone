@@ -43,9 +43,9 @@ export default function Home() {
         id='important-notice'
         className='flex bg-gray-200 lg:bg-white justify-around items-center lg:mx-16 xl:mx-8 2xl:mx-80 lg:my-4 border border-slate-300'
       >
-        <div className='space-y-4 px-6 lg:px-20 my-4 py-2 lg:py-0 bg-white shadow-md shadow-zinc-500/40 lg:shadow-none '>
+        <div className='space-y-4 px-6 lg:px-20 my-4 py-2 lg:py-8 bg-white shadow-md shadow-zinc-500/40 lg:shadow-none '>
           <h1 className='text-2xl font-semibold	'>THÔNG BÁO QUAN TRỌNG</h1>
-          <ul className='text-sm lg:text-xl font-medium	underline space-y-3	'>
+          <ul className='text-sm lg:text-lg font-medium	underline space-y-3	'>
             <li className='hover:text-gray-400'>
               <Link href='#'>
                 - THỜI GIAN GIAO HÀNG DỰ KIẾN TRONG KHOẢNG 7 NGÀY, KHÔNG BAO GỒM

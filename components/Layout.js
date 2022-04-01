@@ -42,7 +42,7 @@ function Layout({ children }) {
       <div
         ref={smallbar}
         id='small-notice-bar'
-        className='z-50 flex lg:px-16 xl:px-8 2xl:px-28 py-1 lg:py-2 justify-center xl:justify-between lg:text-xs text-xs xl:text-sm 2xl:text-md bg-zinc-400 lg:bg-zinc-300 tracking-tight w-full relative'
+        className='z-50 flex lg:px-16 xl:px-8 2xl:px-80 py-1 lg:py-2 justify-center lg:justify-between lg:text-xs text-xs xl:text-sm 2xl:text-md bg-zinc-400 lg:bg-zinc-300 tracking-tight w-full relative'
       >
         <div className='text-white lg:text-black text-center' >
           <h3>
