@@ -41,9 +41,10 @@ function Carousel() {
                 className='h-full w-full absolute object-cover z-10'
                 autoPlay
                 loop
-                playsInline
+                playsInline={true}
                 muted
                 preload="metadata"
+                
               >
                 <source src='/mainvideo.mp4' type='video/mp4' />
                 Your browser does not support the video tag.
