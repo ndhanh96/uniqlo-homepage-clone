@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import Footer from './Footer';
+import MobileNavbar from './MobileNavbar';
 import Navbar from './Navbar';
 
 export const calculateSliderHeight = React.createContext();
@@ -29,14 +30,11 @@ function Layout({ children }) {
 
   useEffect(() => {
     const windowheight = window.innerHeight;
-    
 
     ///CALCULATE HEIGHT FOR THE MAIN SLIDE
     setSliderHeight(
       windowheight - navbar.current.clientHeight - smallbar.current.clientHeight
     );
-
-    
   }, []);
 
   return (
@@ -44,24 +42,23 @@ function Layout({ children }) {
       <div
         ref={smallbar}
         id='small-notice-bar'
-        className='z-50 flex px-8 2xl:px-80 py-2 justify-between text-sm 2xl:text-md bg-zinc-100 tracking-tight w-full relative'
+        className='z-50 flex lg:px-16 xl:px-8 2xl:px-80 md:py-1 lg:py-2 md:justify-center lg:justify-between lg:text-xs xl:text-sm 2xl:text-md bg-zinc-400 lg:bg-zinc-300 tracking-tight w-full relative'
       >
-        <div className=''>
-          <div>
-            <h3>
-              Thuế GTGT áp dụng cho sản phẩm của chúng tôi sẽ giảm 2%, giá tất
-              cả sản phẩm đã bao gồm 8% thuế GTGT.
-            </h3>
-          </div>
+        <div className='text-white lg:text-black md:font-medium' >
+          <h3>
+            Thuế GTGT áp dụng cho sản phẩm của chúng tôi sẽ giảm 2%, giá tất cả
+            sản phẩm đã bao gồm 8% thuế GTGT.
+          </h3>
         </div>
-        <div className='flex space-x-6'>
+        <div className='hidden lg:flex space-x-6'>
           <h3>Trợ giúp</h3>
           <h3>Hệ thống cửa hàng</h3>
           <h3>English|Tiếng Việt</h3>
         </div>
       </div>
-      <div ref={navbar} className=' bg-yellow-800 w-full sticky top-0 z-50 '>
+      <div ref={navbar} className=' w-full sticky top-0 z-50 '>
         <Navbar />
+        <MobileNavbar />
       </div>
       <calculateSliderHeight.Provider value={sliderHeight}>
         {children}

@@ -41,7 +41,7 @@ export default function Home() {
       </div>
       <div
         id='important-notice'
-        className='flex h-60 justify-around items-center mx-8 2xl:mx-80 my-4 border border-slate-200'
+        className='flex h-60 justify-around items-center xl:mx-8 2xl:xl:mx-80 my-4 border border-slate-200'
       >
         <div className='space-y-4 px-20 '>
           <h1 className='text-2xl font-semibold	'>THÔNG BÁO QUAN TRỌNG</h1>
@@ -69,7 +69,7 @@ export default function Home() {
       </div>
       <div
         id='information-notice'
-        className='grid grid-cols-2 space-y-6 mx-8 2xl:mx-80 my-4 border-slate-200 '
+        className='grid grid-cols-2 space-y-6 lg:mx-16 xl:mx-8 2xl:xl:mx-80 my-4 border-slate-200 '
       >
         <h1 className='uppercase font-bold  text-4xl col-span-full '>
           information
@@ -85,7 +85,7 @@ export default function Home() {
           <li>Tin Tức Uniqlo</li>
         </ul>
       </div>
-      <div id='app-offer' className=' mx-8 2xl:mx-80 '>
+      <div id='app-offer' className='lg:mx-16 xl:mx-8 2xl:xl:mx-80 '>
         <h1 className='capitalize  py-2 w-fit font-bold text-4xl'>
           ưu đãi từ ứng dụng
         </h1>

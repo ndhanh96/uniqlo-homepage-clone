@@ -5,7 +5,7 @@ import React from 'react';
 function Footer() {
   return (
     <div className='flex flex-wrap bg-zinc-100 mt-4'>
-      <div className='grid grid-cols-5 gap-x-14 w-full mx-80 my-12 capitalize'>
+      <div className='grid grid-cols-5 gap-x-2 xl:gap-x-14 w-full lg:mx-16 xl:mx-8 2xl:xl:mx-80 my-12 capitalize'>
         <ul>
           <span className='text-base font-semibold'>Về Uniqlo</span>
           <li>Thông tin</li>
@@ -62,12 +62,12 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div id='language' className='mx-80 basis-full'>
+      <div id='language' className='lg:mx-16 xl:mx-8 2xl:xl:mx-80 basis-full'>
         <p>
           English | <span className='font-bold'>Tiếng Việt</span>
         </p>
       </div>
-      <div id='sub-footer' className=' px-80 mt-4 w-full border-t-[1px] border-zinc-300 text-sm'>
+      <div id='sub-footer' className='lg:px-16 xl:px-8 2xl:xl:px-80 mt-4 w-full border-t-[1px] border-zinc-300 text-sm'>
         <div className='flex h-auto items-center justify-between text-zinc-500 '>
           <p className='' >BẢN QUYỀN THUỘC CÔNG TY TNHH UNIQLO. BẢO LƯU MỌI QUYỀN.</p>
           <div className='flex space-x-3 underline py-5'>
