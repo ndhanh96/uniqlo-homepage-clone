@@ -3,7 +3,7 @@ import React from 'react';
 function MobileNavbar() {
   return (
     <div className='lg:hidden bg-white border-b border-zinc-400'>
-      <div className='flex  justify-between px-6 py-3 w-full '>
+      <div className='flex justify-between px-3 md:px-6 py-3 w-full '>
         <div id='logo'>
           <svg xmlns='http://www.w3.org/2000/svg' width='90' height='40'>
             <path fill='red' d='M50 0h40v40H50zM0 0h40v40H0z' />

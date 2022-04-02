@@ -4,7 +4,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div className='flex flex-wrap bg-zinc-100 mt-4'>
+    <div className='flex flex-wrap bg-zinc-100 mt-4 relative'>
       <div className='hidden lg:grid grid-cols-5 gap-x-2 xl:gap-x-14 w-full lg:mx-16 xl:mx-8 2xl:xl:mx-80 my-12 capitalize'>
         <ul>
           <span className='text-base font-semibold'>Về Uniqlo</span>
@@ -71,7 +71,8 @@ function Footer() {
         </p>
       </div>
 
-      <div id='mobile-footer' className='lg:hidden w-full px-6 mt-8'>
+      {/* FOOTER FOR MOBILE */}
+      <div id='mobile-footer' className='lg:hidden w-full px-3 md:px-6 mt-8'>
         <ul className='w-full uppercase font-semibold border-t-2 border-zinc-600'>
           <li className='py-4 border-b border-zinc-400'>hồ sơ</li>
           <li className='py-4 border-b border-zinc-400'>danh sách cửa hàng</li>
@@ -96,13 +97,18 @@ function Footer() {
             </div>
           </li>
           <li className='py-4 border-b border-zinc-400'>tiếp cận</li>
-          <li className='py-4 border-b font-normal border-zinc-400'>english<span className='font-semibold border-l-2 border-zinc-500 pl-2 ml-2'>tiếng việt</span></li>
+          <li className='py-4 border-b font-normal border-zinc-400'>
+            english
+            <span className='font-semibold border-l-2 border-zinc-500 pl-2 ml-2'>
+              tiếng việt
+            </span>
+          </li>
         </ul>
       </div>
 
       <div
         id='sub-footer'
-        className='px-6 lg:px-16 xl:px-8 2xl:xl:px-80 mt-4 w-full lg:border-t-[1px] border-zinc-300 text-sm'
+        className='px-3 md:px-6 lg:px-16 xl:px-8 2xl:xl:px-80 mt-4 w-full lg:border-t-[1px] border-zinc-300 text-sm'
       >
         <div className='flex h-auto items-center justify-center lg:justify-between mb-3 lg:mb-0 text-zinc-500 '>
           <p className='text-xs lg:text-sm'>
@@ -129,8 +135,12 @@ function Footer() {
         </p>
         <p>Để được giải đáp thắc mắc, vui lòng truy cập trang FAQ/Trợ giúp</p>
         <p>Giờ làm việc: 9:00 - 18:00 (Thứ Hai - Chủ Nhật)</p>
-        <div id='checkedmark' className='h-20 w-36 relative'>
-          <Image layout='fill' objectFit='contain' src='/checkmark.png' />
+        <div id='checkedmark' className='-mx-1 h-20 w-36 relative'>
+          <Image
+            layout='fill'
+            objectFit='contain'
+            src='/checkmark.png'
+          />
         </div>
       </div>
     </div>
