@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <div
       id='navbar'
-      className='hidden lg:flex w-full justify-between lg:px-16 xl:px-8 2xl:px-80  uppercase font-semibold items-center bg-white relative '
+      className='hidden lg:flex w-full justify-between lg:px-16 xl:px-8 2xl:px-80  uppercase font-semibold items-center bg-white shadow-md shadow-zinc-300/50 relative '
     >
       <div
         id='mainbar'
